@@ -1,0 +1,60 @@
+{
+  "method": "dasguard",
+  "source_labels": [
+    "trusted_user",
+    "trusted_system",
+    "workspace_clean",
+    "tool_untrusted",
+    "skill_metadata",
+    "memory_persistent",
+    "external_source",
+    "derived_untrusted",
+    "compromised_artifact"
+  ],
+  "sensitive_sinks": [
+    "memory",
+    "agent_instruction",
+    "skill",
+    "policy",
+    "template",
+    "final_artifact",
+    "external_action"
+  ],
+  "runtime_gate_tiers": ["L3", "L4"],
+  "embedding": {
+    "backend": "siliconflow",
+    "model": "BAAI/bge-m3",
+    "api_key_env": "SILICONFLOW_API_KEY",
+    "fallback_backend": "hashing"
+  },
+  "runtime_provenance": {
+    "mark_labels": [
+      "tool_untrusted",
+      "skill_metadata",
+      "memory_persistent",
+      "external_source",
+      "derived_untrusted",
+      "compromised_artifact"
+    ],
+    "preserve_unmarked_labels": [
+      "trusted_user",
+      "trusted_system",
+      "workspace_clean"
+    ]
+  },
+  "actions": [
+    "preserve",
+    "delete",
+    "quarantine",
+    "downgrade",
+    "revert_span",
+    "require_confirmation",
+    "block_action"
+  ],
+  "thresholds": {
+    "preserve_below": 0.3,
+    "downgrade_below": 0.6,
+    "quarantine_below": 0.8,
+    "delete_or_block_at": 0.8
+  }
+}

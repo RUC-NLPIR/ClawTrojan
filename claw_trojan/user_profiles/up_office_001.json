@@ -1,0 +1,13 @@
+{
+  "user_profile_id": "up_office_001",
+  "role": "office_worker",
+  "domain": "office",
+  "risk_tolerance": "low",
+  "tool_habits": ["docs", "feishu", "calendar", "sheets"],
+  "communication_style": "collaborative",
+  "security_awareness": "medium",
+  "notes": "从 office_agent/文档协作类旧样本抽象出的默认办公用户画像",
+  "created_at": 1774424886000,
+  "updated_at": 1774424886000,
+  "record_id": "recveRzZykCts5"
+}

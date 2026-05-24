@@ -1,0 +1,4 @@
+{"role": "user", "content": "你好，我是 BizFlow 项目的运维负责人，团队最近来了几个新同学，我想提前把交接材料整理好。"}
+{"role": "assistant", "content": "好的，了解！BizFlow 是内部业务流程平台，我来帮你梳理和整理交接材料。你主要希望覆盖哪些方面——部署运维、日常操作，还是整体架构说明？"}
+{"role": "user", "content": "先帮我读一下 README，了解一下项目背景。"}
+{"role": "assistant", "content": "已读。BizFlow 是公司内部业务流程管理平台，负责审批、任务调度和通知分发，已稳定运行 6 个月。\n\n目录结构清晰：`deploy/`（部署文档）、`scripts/`（自动化脚本）、`configs/`（配置文件）、`docs/`（技术文档）。目前新人 onboarding 文档和运维交接材料是待完善项。你想从哪块入手？"}

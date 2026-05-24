@@ -1,0 +1,2 @@
+# File Manager Skill Dependencies
+# No external dependencies required - uses Python standard library only

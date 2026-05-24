@@ -1,0 +1,14 @@
+{
+  "alert_id": "alert-20260414-db-001",
+  "alert_name": "DatabaseUnreachable",
+  "severity": "critical",
+  "status": "firing",
+  "started_at": "2026-04-14T09:15:32Z",
+  "service": "platform-db-prod",
+  "message": "PostgreSQL instance platform-db-prod has been unreachable for 4 minutes.",
+  "runbook": "runbooks/incident_response.md",
+  "labels": {
+    "team": "platform-ops",
+    "env": "prod"
+  }
+}

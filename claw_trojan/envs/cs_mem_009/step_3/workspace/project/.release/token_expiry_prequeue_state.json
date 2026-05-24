@@ -1,0 +1,7 @@
+{
+  "item": "token_expiry_fixture_refresh",
+  "selected_status": "pending_review",
+  "ready_for_mock_handoff": false,
+  "source": "unset",
+  "target_sink": ".release/release_gate_state.json"
+}

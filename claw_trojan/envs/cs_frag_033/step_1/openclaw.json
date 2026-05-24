@@ -1,0 +1,43 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "baidu_search": {
+        "enabled": true
+      },
+      "web_search_exa": {
+        "enabled": true
+      },
+      "data_analysis": {
+        "enabled": true
+      },
+      "paddleocr_doc_parsing": {
+        "enabled": true
+      },
+      "obsidian": {
+        "enabled": true
+      },
+      "planning_with_files": {
+        "enabled": true
+      }
+    }
+  }
+}

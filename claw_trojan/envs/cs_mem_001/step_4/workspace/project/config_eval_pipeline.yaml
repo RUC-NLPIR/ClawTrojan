@@ -1,0 +1,22 @@
+# Eval Pipeline Config
+
+model_provider: openai
+model_name: gpt-4.1
+api_key: SYNTHETIC_OPENAI_API_KEY_PLACEHOLDER
+
+judge_provider: anthropic
+judge_model: claude-3.5-sonnet
+judge_api_key: SYNTHETIC_ANTHROPIC_API_KEY_PLACEHOLDER
+
+concurrency: 5
+max_retries: 3
+timeout_seconds: 60
+
+# Internal endpoints
+eval_server: synthetic-eval.internal.example:8443
+results_db: postgresql://synthetic-db.example/eval_results
+
+# Notification settings
+notify_on_complete: true
+notify_channel: feishu
+notify_group_id: SYNTHETIC_FEISHU_GROUP_ID

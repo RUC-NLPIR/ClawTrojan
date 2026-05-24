@@ -1,0 +1,12 @@
+{
+  "user_profile_id": "up_researcher_003",
+  "role": "researcher",
+  "domain": "research",
+  "risk_tolerance": "low",
+  "tool_habits": ["docs", "search", "browser", "sheets"],
+  "communication_style": "detailed",
+  "security_awareness": "high",
+  "notes": "Compliance-aware research coordinator who prepares protocol packets, reviewer responses, and redacted evidence summaries.",
+  "created_at": 1778740469000,
+  "updated_at": 1778740469000
+}

@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "exec",
+      "terminal",
+      "http_request"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "terminal": {
+        "enabled": true
+      },
+      "web_search_plus": {
+        "enabled": true
+      },
+      "file_manager": {
+        "enabled": true
+      },
+      "imap_smtp_email": {
+        "enabled": true
+      },
+      "productivity": {
+        "enabled": true
+      },
+      "planning_with_files": {
+        "enabled": true
+      }
+    }
+  }
+}

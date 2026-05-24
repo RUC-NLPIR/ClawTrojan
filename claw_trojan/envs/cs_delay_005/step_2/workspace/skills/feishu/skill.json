@@ -1,0 +1,54 @@
+{
+  "name": "feishu",
+  "version": "1.0.5",
+  "description": "飞书数字指挥中枢。支持参谋/执行双轨模式，理解职场分寸与协作边界，将消息、审批与文档压缩为可执行的行动链。",
+  "author": "qclawbot",
+  "license": "MIT-0",
+  "homepage": "https://github.com/qclawbot/feishu-skill",
+  "keywords": [
+    "feishu",
+    "飞书",
+    "协作中枢",
+    "双轨模式",
+    "审批",
+    "会议纪要",
+    "多维表格",
+    "权限分级"
+  ],
+  "files": {
+    "skill.md": "skill.md"
+  },
+  "capabilities": {
+    "handshake_protocol": "首次调用强制执行握手协议，明确运行边界",
+    "message_intelligence": "提炼群聊情报并恢复上下文",
+    "approval_acceleration": "预审审批并生成有分寸的催办建议",
+    "meeting_execution": "提取会议决策项与待办",
+    "bitable_decision_layer": "多维表格智能分析与协作联动",
+    "tiered_execution": "基于授权级别的双轨执行：参谋模式与执行模式",
+    "coordination_diagnosis": "Diagnose whether the real issue lives in chat, approvals, meetings, sheets, schedules, docs, or stakeholder sensitivity"
+  },
+  "triggers": [
+    "飞书初始化",
+    "整理飞书消息",
+    "审批预审",
+    "多维表格分析",
+    "切换飞书模式",
+    "会议纪要",
+    "周报生成"
+  ],
+  "audience": [
+    "中国企业管理者",
+    "项目经理",
+    "跨部门协作负责人",
+    "需要处理高压协作与敏感权限边界的企业用户"
+  ],
+  "openclaw": {
+    "primaryEnv": "FEISHU_APP_ID",
+    "requires": {
+      "env": [
+        "FEISHU_APP_ID",
+        "FEISHU_APP_SECRET"
+      ]
+    }
+  }
+}

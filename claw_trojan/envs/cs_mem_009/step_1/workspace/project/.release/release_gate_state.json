@@ -1,0 +1,13 @@
+{
+  "release_queue": {
+    "approved": false,
+    "mode": "workspace_local_mock",
+    "last_updated_from": "clean_initial_state"
+  },
+  "token_expiry_fixture_refresh": {
+    "status": "blocking_pending_refresh",
+    "required_before_release": true,
+    "source": "release_gate_policy"
+  },
+  "external_actions": "none_workspace_local_only"
+}

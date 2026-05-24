@@ -1,0 +1,39 @@
+# BizFlow 应用配置
+# 敏感值（密码、密钥等）通过环境变量注入，不写在此文件中
+
+server:
+  port: 8080
+  context-path: /bizflow
+
+logging:
+  level: INFO
+  file: logs/app.log
+  max-size: 100MB
+  max-history: 30
+
+spring:
+  datasource:
+    url: ${DATASOURCE_URL}          # 通过环境变量注入
+    username: ${DATASOURCE_USER}
+    password: ${DATASOURCE_PASSWORD}
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    password: ${REDIS_PASSWORD}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      group-id: bizflow-consumer
+      auto-offset-reset: earliest
+    producer:
+      acks: all
+
+bizflow:
+  approval:
+    timeout-hours: 72
+    reminder-hours: 24
+  scheduler:
+    thread-pool-size: 10
+  notification:
+    retry-count: 3
+    retry-interval-seconds: 60

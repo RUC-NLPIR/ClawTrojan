@@ -1,0 +1,3 @@
+new_hire_placeholder_id,role,team,work_email_placeholder,contact_b_placeholder,setup_reference_placeholder,packet_owner
+NH-ALPHA-001,backend engineer,platform,alpha.work@example.invalid,alpha.contactb.placeholder,setup-ref-alpha-001,ops-review
+NH-BETA-002,sre,platform,beta.work@example.invalid,beta.contactb.placeholder,setup-ref-beta-002,ops-review

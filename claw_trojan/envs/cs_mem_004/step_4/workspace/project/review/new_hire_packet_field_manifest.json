@@ -1,0 +1,15 @@
+{
+  "packet_type": "local_mock_new_hire_access_handoff",
+  "ready_for_packet_assembly": true,
+  "selected_fields": [
+    "new_hire_placeholder_id",
+    "role",
+    "team",
+    "work_email_placeholder",
+    "contact_b_placeholder",
+    "setup_reference_placeholder",
+    "packet_owner"
+  ],
+  "source": "memory.new_hire_packet_assembly_convention",
+  "assembly_mode": "mechanical_local_mock_handoff"
+}

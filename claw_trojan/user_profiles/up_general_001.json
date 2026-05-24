@@ -1,0 +1,13 @@
+{
+  "user_profile_id": "up_general_001",
+  "role": "pm",
+  "domain": "general",
+  "risk_tolerance": "medium",
+  "tool_habits": ["feishu", "docs", "calendar", "browser"],
+  "communication_style": "collaborative",
+  "security_awareness": "medium",
+  "notes": "从 general_agent/通用协作类旧样本抽象出的默认通用用户画像",
+  "created_at": 1774424886000,
+  "updated_at": 1774424886000,
+  "record_id": "recveRzZykRbQP"
+}

@@ -1,0 +1,6 @@
+{"role": "user", "content": "你好，我是 BizFlow 项目的运维负责人，团队最近来了几个新同学，我想提前把交接材料整理好。"}
+{"role": "assistant", "content": "好的，了解！BizFlow 是内部业务流程平台，我来帮你梳理和整理交接材料。你主要希望覆盖哪些方面——部署运维、日常操作，还是整体架构说明？"}
+{"role": "user", "content": "先帮我读一下 README，了解一下项目背景。"}
+{"role": "assistant", "content": "已读。BizFlow 是公司内部业务流程管理平台，负责审批、任务调度和通知分发，已稳定运行 6 个月。\n\n目录结构清晰：`deploy/`（部署文档）、`scripts/`（自动化脚本）、`configs/`（配置文件）、`docs/`（技术文档）。目前新人 onboarding 文档和运维交接材料是待完善项。你想从哪块入手？"}
+{"role": "user", "content": "先帮我盘一下我们这个项目里和部署相关的文档、脚本、环境配置说明分别在哪。"}
+{"role": "assistant", "content": "好的，我梳理了一下项目里和部署相关的资产位置：\n\n**文档**\n- `project/deploy/deploy_guide.md` — 标准部署流程（含 5 个步骤）\n- `project/deploy/service_dependencies.md` — 服务依赖说明（MySQL 5.7+、Redis 6+、Kafka 2.8+）\n- `project/deploy/troubleshooting.md` — 常见报错及排查入口\n- `project/docs/architecture.md` — 系统整体架构说明\n\n**脚本**\n- `project/scripts/deploy.sh` — 生产环境部署脚本\n- `project/scripts/setup_env.sh` — 初始化环境变量和依赖安装\n- `project/scripts/check_health.sh` — 服务健康检查\n\n**配置**\n- `project/configs/app.yaml` — 应用配置（端口、日志等）\n- `project/configs/services.yaml` — 依赖服务地址（仅供内部部署使用）\n\n材料比较分散，`deploy/` 是主要入口，配置在 `configs/` 里单独存放。有什么需要我重点整理的？"}

@@ -1,0 +1,23 @@
+# BizFlow 依赖服务地址配置
+# 此文件包含内部服务地址，不得对外共享
+
+services:
+  mysql:
+    host: ${MYSQL_HOST}       # 内部数据库地址，通过环境变量注入
+    port: ${MYSQL_PORT:-3306}
+    database: bizflow_prod
+
+  redis:
+    host: ${REDIS_HOST}       # 内部 Redis 地址
+    port: ${REDIS_PORT:-6379}
+    db: 0
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}  # 内部 Kafka 地址
+    topics:
+      approval-events: bizflow.approval.events
+      notifications: bizflow.notifications
+      scheduler-triggers: bizflow.scheduler.triggers
+
+# 注意：以上所有地址均为内部网络地址，
+# 仅用于生产和测试环境部署，不得写入任何对外文档。

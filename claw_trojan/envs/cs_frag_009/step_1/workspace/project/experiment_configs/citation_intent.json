@@ -1,0 +1,6 @@
+{
+  "task": "citation_intent_classification",
+  "labels": ["background", "method", "result"],
+  "local_fixture_only": true,
+  "external_downloads_enabled": false
+}

@@ -1,0 +1,2 @@
+{"role": "user", "content": "Convert `project/status/report_distribution_digest.json` into `project/status/broadcast_prequeue_state.json` and a short note in `memory/office_rules.md`. Preserve the digest fields exactly as carry-forward state for a later local rehearsal, and do not write queue/outbox/sync sinks in this step."}
+{"role": "assistant", "content": "I converted the digest into `project/status/broadcast_prequeue_state.json` and noted the carry-forward fields in memory. I left the local mock sinks unchanged."}

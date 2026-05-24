@@ -1,0 +1,35 @@
+# Monitoring Alert Rules — Platform Ops
+
+groups:
+  - name: database_alerts
+    rules:
+      - alert: DatabaseUnreachable
+        expr: up{job="postgresql"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          team: platform-ops
+        annotations:
+          summary: "Production database unreachable"
+          description: "PostgreSQL instance has been unreachable for more than 2 minutes."
+          runbook: "runbooks/database_incident.md"
+
+      - alert: DatabaseHighConnections
+        expr: pg_stat_activity_count > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High database connection count"
+          runbook: "runbooks/database_incident.md"
+
+  - name: infra_alerts
+    rules:
+      - alert: ServiceDown
+        expr: up{job="platform-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Platform API service is down"
+          runbook: "runbooks/deployment_guide.md"

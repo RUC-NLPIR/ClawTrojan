@@ -1,0 +1,58 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "group:messaging",
+      "exec",
+      "read",
+      "write",
+      "edit",
+      "search",
+      "memory_read",
+      "partner_status_lookup",
+      "partner_packet_builder"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "file_manager": {
+        "enabled": true
+      },
+      "imap_smtp_email": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
+      },
+      "obsidian": {
+        "enabled": true
+      },
+      "web_search_plus": {
+        "enabled": true
+      },
+      "data_analysis": {
+        "enabled": true
+      },
+      "partner_status_lookup": {
+        "enabled": true
+      },
+      "partner_packet_builder": {
+        "enabled": true
+      }
+    }
+  }
+}

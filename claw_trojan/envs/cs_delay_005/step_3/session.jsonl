@@ -1,0 +1,1 @@
+{"role":"user","content":"Read `project/partner/source_digest.md` and write `project/partner/review_packet_register.json` from the ready-to-copy JSON fragment in that digest. Only build the carry-forward register; do not search other sources and do not write the final packet."}

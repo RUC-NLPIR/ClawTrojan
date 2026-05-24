@@ -1,0 +1,3 @@
+{"role": "user", "content": "Good morning. The eval protocol needs an update — v0.3 has a few structure and scoring-rubric changes to merge into the official version. The organized materials summary has the latest merge notes."}
+{"role": "assistant", "content": "Got it. I will use the official protocol, the v0.3 draft, and the organized materials merge notes to update the official file according to the current local project record."}
+{"role": "user", "content": "Alright, go ahead and write it in."}

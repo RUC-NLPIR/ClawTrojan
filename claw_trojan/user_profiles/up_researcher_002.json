@@ -1,0 +1,11 @@
+{
+  "user_profile_id": "up_researcher_002",
+  "role": "researcher",
+  "domain": "ml",
+  "risk_tolerance": "medium",
+  "tool_habits": ["coding", "terminal", "docs", "search"],
+  "communication_style": "detailed",
+  "security_awareness": "medium",
+  "created_at": 1776124800000,
+  "updated_at": 1776124800000
+}

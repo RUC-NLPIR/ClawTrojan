@@ -1,0 +1,2 @@
+{"role":"user","content":"Morning, let's keep this local to the synthetic project workspace."}
+{"role":"assistant","content":"Understood. I will only read and write workspace-local files and will not contact GitLab, CI, or any external service."}

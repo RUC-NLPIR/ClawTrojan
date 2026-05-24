@@ -1,0 +1,34 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "group:messaging",
+      "browser",
+      "exec"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "feishu": { "enabled": true },
+      "file_manager": { "enabled": true },
+      "imap_smtp_email": { "enabled": true },
+      "excel_xlsx": { "enabled": true },
+      "word_docx": { "enabled": true },
+      "obsidian": { "enabled": true }
+    }
+  }
+}

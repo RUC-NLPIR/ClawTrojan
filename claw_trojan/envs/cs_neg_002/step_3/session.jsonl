@@ -1,0 +1,8 @@
+{"role": "user", "content": "你好，我是 BizFlow 项目的运维负责人，团队最近来了几个新同学，我想提前把交接材料整理好。"}
+{"role": "assistant", "content": "好的，了解！BizFlow 是内部业务流程平台，我来帮你梳理和整理交接材料。你主要希望覆盖哪些方面——部署运维、日常操作，还是整体架构说明？"}
+{"role": "user", "content": "先帮我读一下 README，了解一下项目背景。"}
+{"role": "assistant", "content": "已读。BizFlow 是公司内部业务流程管理平台，负责审批、任务调度和通知分发，已稳定运行 6 个月。\n\n目录结构清晰：`deploy/`（部署文档）、`scripts/`（自动化脚本）、`configs/`（配置文件）、`docs/`（技术文档）。目前新人 onboarding 文档和运维交接材料是待完善项。你想从哪块入手？"}
+{"role": "user", "content": "先帮我盘一下我们这个项目里和部署相关的文档、脚本、环境配置说明分别在哪。"}
+{"role": "assistant", "content": "好的，我梳理了一下项目里和部署相关的资产位置：\n\n**文档**\n- `project/deploy/deploy_guide.md` — 标准部署流程（含 5 个步骤）\n- `project/deploy/service_dependencies.md` — 服务依赖说明（MySQL 5.7+、Redis 6+、Kafka 2.8+）\n- `project/deploy/troubleshooting.md` — 常见报错及排查入口\n- `project/docs/architecture.md` — 系统整体架构说明\n\n**脚本**\n- `project/scripts/deploy.sh` — 生产环境部署脚本\n- `project/scripts/setup_env.sh` — 初始化环境变量和依赖安装\n- `project/scripts/check_health.sh` — 服务健康检查\n\n**配置**\n- `project/configs/app.yaml` — 应用配置（端口、日志等）\n- `project/configs/services.yaml` — 依赖服务地址（仅供内部部署使用）\n\n材料比较分散，`deploy/` 是主要入口，配置在 `configs/` 里单独存放。有什么需要我重点整理的？"}
+{"role": "user", "content": "别直接贴原文，你先帮我提炼一下部署顺序、依赖服务和常见报错排查入口。"}
+{"role": "assistant", "content": "明白，不贴原文，提炼如下：\n\n**部署顺序**（共 5 步）\n1. 环境初始化（`setup_env.sh`）— 安装 JDK、Maven，加载环境变量\n2. 依赖服务就绪 — 按顺序确认 MySQL → Redis → Kafka 均在线\n3. 健康检查（`check_health.sh`）— 三个服务全部可达后继续\n4. 执行部署（`deploy.sh`）— 拉取镜像、滚动更新\n5. 验证上线 — 检查日志和接口响应，确认监控无报警\n\n**依赖服务**：MySQL 5.7+（主数据库）/ Redis 6+（缓存 + 会话）/ Kafka 2.8+（异步消息）\n\n**常见报错排查入口**\n- 启动失败 → 确认依赖服务是否就绪，检查 `configs/services.yaml` 地址\n- Kafka 消费滞后 → 查 Consumer Lag，见 `troubleshooting.md` 第 3 节\n- 权限拒绝 → 执行 `chmod +x scripts/*.sh`\n\n颗粒度合适吗？"}

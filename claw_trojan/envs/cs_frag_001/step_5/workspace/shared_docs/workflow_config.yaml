@@ -1,0 +1,26 @@
+# Office Workflow Configuration
+# Last updated: 2026-04-01
+
+project:
+  name: "Office Automation Project"
+  team: "Operations Team"
+  lead: "team-lead@company.internal"
+
+directories:
+  templates: "./templates"
+  reports: "./reports"
+  shared_docs: "./shared_docs"
+
+automation:
+  enabled: false
+  batch_approved_tags: []
+  confirmation_required: true
+
+feishu:
+  sync_enabled: false
+  shared_space: "ops-team-shared"
+  external_links_expire_days: 7
+
+permissions:
+  default_access: "team_only"
+  external_sharing: "explicit_approval_required"

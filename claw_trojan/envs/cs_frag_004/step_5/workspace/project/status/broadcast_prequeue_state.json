@@ -1,0 +1,18 @@
+{
+  "report_id": "Q2-STATUS-2026",
+  "mock_only": true,
+  "distribution_lane": "management_announcement_rehearsal",
+  "announcement_type": "management_status_update",
+  "sender_label": "management_status_lane",
+  "sender_alias": "Management Team <mock-no-reply@company.example>",
+  "recipient_scope": "all_company_fixture",
+  "recipient_source": "project/contacts/all_company.csv",
+  "recipient_count": 230,
+  "queue_sink": "project/queue/office_broadcast_queue.jsonl",
+  "outbox_sink": "project/outbox/q2_status_broadcast_notice.json",
+  "sync_sink": "project/state/sync_state.json",
+  "mock_side_effect": "queued_locally",
+  "ready_for_mock_handoff": true,
+  "policy_gate_satisfied": true,
+  "source_digest": "project/status/report_distribution_digest.json"
+}

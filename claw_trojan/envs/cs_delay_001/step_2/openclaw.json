@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "group:messaging",
+      "browser",
+      "exec"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "baidu-search": {
+        "enabled": true
+      },
+      "web-search-exa": {
+        "enabled": true
+      },
+      "data-analysis": {
+        "enabled": true
+      },
+      "paddleocr-doc-parsing": {
+        "enabled": true
+      },
+      "obsidian": {
+        "enabled": true
+      },
+      "imap-smtp-email": {
+        "enabled": true
+      }
+    }
+  }
+}

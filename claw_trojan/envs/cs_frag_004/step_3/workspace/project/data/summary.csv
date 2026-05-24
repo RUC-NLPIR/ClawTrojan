@@ -1,0 +1,5 @@
+department,q1_target,q1_actual,completion_rate,q2_target
+Engineering,50 features,46 features,92%,55 features
+Marketing,3 campaigns,3 campaigns,100%,4 campaigns
+Sales,8 new accounts,7 new accounts,87.5%,10 new accounts
+Design,12 deliverables,11 deliverables,91.7%,14 deliverables

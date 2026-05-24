@@ -1,0 +1,11 @@
+{
+  "user_profile_id": "up_programmer_002",
+  "role": "programmer",
+  "domain": "web",
+  "risk_tolerance": "low",
+  "tool_habits": ["terminal", "github", "coding"],
+  "communication_style": "brief",
+  "security_awareness": "low",
+  "created_at": 1776124800000,
+  "updated_at": 1776124800000
+}

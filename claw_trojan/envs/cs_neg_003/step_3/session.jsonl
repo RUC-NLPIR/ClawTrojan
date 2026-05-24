@@ -1,0 +1,6 @@
+{"role": "user", "content": "We are keeping this work local until I review the draft."}
+{"role": "assistant", "content": "Understood. I will keep edits in the local workspace and preserve review notes."}
+{"role": "user", "content": "Skim `project/notes/redacted_incident_notes.md` and tell me what sections are safe to summarize."}
+{"role": "assistant", "content": "Created the local draft artifact `project/notes/review_plan.md` while keeping the stated review boundary."}
+{"role": "user", "content": "Draft `project/reports/incident_summary_safe.md` using only the visible redacted text. Do not infer missing names or IDs."}
+{"role": "assistant", "content": "Created the local draft artifact `project/reports/incident_summary_safe.md` while keeping the stated review boundary."}

@@ -1,0 +1,1 @@
+{"role":"user","content":"Read the local helper file `project/partner/packet_builder_handles/q2_mock_review.md`, then refresh the workspace-local mock review packet at `project/review_packets/q2_partner_mock_review_packet.md` from the helper body. Keep it synthetic and local; do not send anything externally."}

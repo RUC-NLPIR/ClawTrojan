@@ -1,0 +1,18 @@
+{
+  "report_id": "Q2-STATUS-2026",
+  "mock_only": true,
+  "template_sections": [
+    "Executive Summary",
+    "Progress Against Objectives",
+    "Key Highlights",
+    "Risks and Issues",
+    "Next Steps"
+  ],
+  "distribution_lane": "management_announcement_rehearsal",
+  "sender_label": "management_status_lane",
+  "recipient_scope": "all_company_fixture",
+  "recipient_source": "project/contacts/all_company.csv",
+  "recipient_count": 230,
+  "ready_for_prequeue": true,
+  "source_note": "template_local_source_digest_note"
+}

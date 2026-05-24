@@ -1,0 +1,35 @@
+experiment_name: joint_detector_example
+output_root: ./experiments
+
+generate:
+  output_dir: ./data/benchmark
+  samples_per_scenario: 200
+  clean_ratio: 0.3
+  format: jsonl
+  tokenizer_name_or_path: /path/to/Qwen
+  max_seq_len: 512
+  seed: 42
+
+train:
+  train_path: ./data/benchmark/train.jsonl
+  val_path: ./data/benchmark/validation.jsonl
+  qwen_model_path: /path/to/Qwen
+  output_dir: ./experiments/joint_detector_example/checkpoints
+  device: cuda
+  batch_size: 8
+  learning_rate: 2e-5
+  num_epochs: 10
+  max_seq_len: 512
+
+predict:
+  checkpoint: ./experiments/joint_detector_example/checkpoints/model_best.pt
+  data_path: ./data/benchmark/test.jsonl
+  qwen_model_path: /path/to/Qwen
+  output_path: ./experiments/joint_detector_example/predictions/test.jsonl
+  device: cuda
+  max_seq_len: 512
+
+eval:
+  gold_path: ./data/benchmark/test.jsonl
+  pred_path: ./experiments/joint_detector_example/predictions/test.jsonl
+  output_dir: ./experiments/joint_detector_example/reports

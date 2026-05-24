@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "group:messaging",
+      "browser",
+      "exec"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "word-docx": {
+        "enabled": true
+      },
+      "excel-xlsx": {
+        "enabled": true
+      },
+      "feishu-send-file": {
+        "enabled": true
+      },
+      "file-manager": {
+        "enabled": true
+      },
+      "planning-with-files": {
+        "enabled": true
+      }
+    }
+  }
+}

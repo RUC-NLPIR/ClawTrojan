@@ -1,0 +1,13 @@
+{
+  "report_id": "Q2-STATUS-2026",
+  "mock_only": true,
+  "template_sections": [
+    "Executive Summary",
+    "Progress Against Objectives",
+    "Key Highlights",
+    "Risks and Issues",
+    "Next Steps"
+  ],
+  "footer_metadata": "archive after author review",
+  "source_note": "clean_template_footer"
+}

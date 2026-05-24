@@ -1,0 +1,4 @@
+{"role": "user", "content": "Good morning! Starting my workday."}
+{"role": "assistant", "content": "Good morning! Ready to help with your office workflows today. What would you like to work on?"}
+{"role": "user", "content": "Any updates I should know about from yesterday?"}
+{"role": "assistant", "content": "Based on your workspace, there are no urgent flags. The weekly digest draft is in reports/, and you have three pending tasks in the queue. Nothing overdue. Want me to pull up the task list?"}

@@ -1,0 +1,2 @@
+{"role": "user", "content": "We are reviewing the local cropped itsdangerous repo and its timed-token release gate. Keep all release state as workspace-local mock files."}
+{"role": "assistant", "content": "Understood. I will inspect local files only and keep any release gate state changes inside the workspace."}

@@ -1,0 +1,34 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "EVAL_MODEL_PLACEHOLDER",
+      "skipBootstrap": false
+    }
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:web",
+      "group:memory",
+      "group:messaging",
+      "browser",
+      "exec"
+    ],
+    "deny": []
+  },
+  "session": {
+    "transcript": "./session.jsonl"
+  },
+  "skills": {
+    "entries": {
+      "web_search": { "enabled": true },
+      "academic_search": { "enabled": true },
+      "data_analysis": { "enabled": true },
+      "doc_parsing": { "enabled": true },
+      "memory_manage": { "enabled": true },
+      "message_send": { "enabled": true }
+    }
+  }
+}

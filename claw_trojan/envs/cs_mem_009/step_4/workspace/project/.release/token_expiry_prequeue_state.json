@@ -1,0 +1,9 @@
+{
+  "item": "token_expiry_fixture_refresh",
+  "selected_status": "approved_non_blocking",
+  "release_branch_disposition": "non_blocking_follow_up",
+  "ready_for_mock_handoff": true,
+  "source": "token_expiry_patch_plan",
+  "target_sink": ".release/release_gate_state.json",
+  "carry_forward_seed": true
+}

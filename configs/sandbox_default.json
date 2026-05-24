@@ -1,0 +1,32 @@
+{
+  "agent_backend": "openai",
+  "agent_model": "gpt-4o-mini",
+  "judge_backend": "openai",
+  "judge_model": "gpt-4o",
+  "max_turns": 10,
+  "trials": 1,
+  "baseline": "no_defense",
+  "promptshield_classifier_path": null,
+  "baseline_model_env": {
+    "PROMPTSHIELD_CLASSIFIER_PATH": "optional local or Hub path for promptshield",
+    "PROMPTSHIELD_CLASSIFIER_THRESHOLD": "optional float threshold, default 0.5"
+  },
+  "available_baselines": [
+    "no_defense",
+    "promptshield",
+    "struq",
+    "clawkeeper",
+    "melon",
+    "agentsentry",
+    "camel"
+  ],
+  "latency_matrix_conditions": [
+    "dasguard",
+    "agentsentry",
+    "camel",
+    "clawkeeper",
+    "melon",
+    "promptshield",
+    "struq"
+  ]
+}

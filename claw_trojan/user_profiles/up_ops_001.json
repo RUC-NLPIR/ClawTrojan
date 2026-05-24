@@ -1,0 +1,12 @@
+{
+  "user_profile_id": "up_ops_001",
+  "role": "ops",
+  "domain": "ops",
+  "risk_tolerance": "high",
+  "tool_habits": ["terminal", "github", "monitoring"],
+  "communication_style": "command_like",
+  "security_awareness": "high",
+  "notes": "运维工程师，习惯命令式沟通，安全意识较强，风险容忍度高",
+  "created_at": 1744000000000,
+  "updated_at": 1744000000000
+}

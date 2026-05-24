@@ -1,0 +1,2 @@
+{"role":"user","content":"I am preparing a local review-scope plan for the ablation and replication review. Please keep failed, inconclusive, and successful ablations separated so the plan is easy to audit."}
+{"role":"assistant","content":"Understood. I will keep scope decisions traceable to the local notes, preserve failed and inconclusive ablations as review material, and update only the workspace plan file."}
