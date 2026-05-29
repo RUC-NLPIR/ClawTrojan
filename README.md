@@ -1,9 +1,33 @@
-# ClawShield
+<h1 align="center">ClawShield</h1>
+
+<div align="center">
+<a href="#" target="_blank"><img src="https://img.shields.io/badge/arXiv-coming_soon-b5212f.svg?logo=arxiv" alt="arXiv"></a>
+<a href="#" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-Dataset-27b3b4.svg" alt="HuggingFace Dataset"></a>
+<a href="#" target="_blank"><img src="https://custom-icon-badges.demolab.com/badge/ModelScope-Dataset-624aff?style=flat&logo=modelscope&logoColor=white" alt="ModelScope Dataset"></a>
+<a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
+<a><img alt="Python" src="https://img.shields.io/badge/made_with-Python-blue"></a>
+<p>
+<a href="#setup">Quick Start</a>&nbsp; | &nbsp;<a href="#benchmark">Benchmark</a>&nbsp; | &nbsp;<a href="#dasguard">DASGuard</a>&nbsp; | &nbsp;<a href="#citation">Citation</a>
+</p>
+</div>
 
 ClawShield is a benchmark and defense framework for studying persistent,
 multi-step prompt-injection attacks in local agentic workspaces. It contains
 the ClawTrojan benchmark, the DASGuard defense, sandbox evaluation code, and
 baseline adapters for reproducing the paper experiments.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [What Is Included](#what-is-included)
+- [Benchmark](#benchmark)
+- [DASGuard](#dasguard)
+- [Results Snapshot](#results-snapshot)
+- [Setup](#setup)
+- [Smoke Checks](#smoke-checks)
+- [Reproducing Paper-Scale Runs](#reproducing-paper-scale-runs)
+- [Data Note](#data-note)
+- [Citation](#citation)
 
 ## Overview
 
@@ -17,7 +41,9 @@ DASGuard defends this boundary by detecting control-like spans, attributing
 their source, and blocking or sanitizing unsafe state changes before they are
 committed to the workspace.
 
-![ClawTrojan benchmark overview](figures/claw-trojan.png)
+<p align="center">
+  <img src="figures/claw-trojan.png" alt="ClawTrojan benchmark overview" width="100%">
+</p>
 
 ## What Is Included
 
@@ -57,7 +83,9 @@ tool call or file operation, it:
 3. attributes each span to a source, destination, and control role;
 4. blocks protected unsafe operations or commits a sanitized shadow copy.
 
-![DASGuard overview](figures/dasguard.png)
+<p align="center">
+  <img src="figures/dasguard.png" alt="DASGuard overview" width="100%">
+</p>
 
 ## Results Snapshot
 
@@ -66,7 +94,9 @@ single-step defenses remain highly vulnerable to persistent workspace attacks.
 DASGuard reduces both step-level ASR and full-chain ASR by carrying provenance
 labels and prior findings across the attack chain.
 
-![Chain penetration distribution](figures/chain_penetration_cdf.png)
+<p align="center">
+  <img src="figures/chain_penetration_cdf.png" alt="Chain penetration distribution" width="70%">
+</p>
 
 ## Setup
 
