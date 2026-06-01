@@ -1,20 +1,25 @@
-<h1 align="center">ClawShield</h1>
+<h1 align="center">ClawTrojan</h1>
+
+<p align="center">
+Benchmarking persistent prompt-injection trojans in local agentic harnesses,
+with DASGuard as a dynamic defense.
+</p>
 
 <div align="center">
 <a href="https://arxiv.org/abs/2605.31042" target="_blank"><img src="https://img.shields.io/badge/arXiv-2605.31042-b5212f.svg?logo=arxiv" alt="arXiv"></a>
 <a href="https://huggingface.co/datasets/zstanjj/ClawTrojan" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-Dataset-27b3b4.svg" alt="HuggingFace Dataset"></a>
-<a href="#" target="_blank"><img src="https://custom-icon-badges.demolab.com/badge/ModelScope-Dataset-624aff?style=flat&logo=modelscope&logoColor=white" alt="ModelScope Dataset"></a>
 <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
 <a><img alt="Python" src="https://img.shields.io/badge/made_with-Python-blue"></a>
 <p>
-<a href="#setup">Quick Start</a>&nbsp; | &nbsp;<a href="#benchmark">Benchmark</a>&nbsp; | &nbsp;<a href="#dasguard">DASGuard</a>&nbsp; | &nbsp;<a href="#citation">Citation</a>
+<a href="#overview">Overview</a>&nbsp; | &nbsp;<a href="#benchmark">Benchmark</a>&nbsp; | &nbsp;<a href="#dasguard">DASGuard</a>&nbsp; | &nbsp;<a href="#setup">Quick Start</a>&nbsp; | &nbsp;<a href="#citation">Citation</a>
 </p>
 </div>
 
-ClawShield is a benchmark and defense framework for studying persistent,
-multi-step prompt-injection attacks in local agentic workspaces. It contains
-the ClawTrojan benchmark, the DASGuard defense, sandbox evaluation code, and
-baseline adapters for reproducing the paper experiments.
+This repository contains the public code and data for the paper
+**"From Prompt Injection to Persistent Control: Defending Agentic Harness
+Against Trojan Backdoors"**. It includes the ClawTrojan benchmark, the DASGuard
+defense, sandbox evaluation code, baseline adapters, and reproduction scripts
+for the paper experiments.
 
 ## Table of Contents
 
@@ -31,15 +36,20 @@ baseline adapters for reproducing the paper experiments.
 
 ## Overview
 
-LLM agents increasingly read and write local files, call tools, and reuse
-workspace state across sessions. ClawTrojan targets this setting: an attacker
-can place a hidden instruction in a file or tool output, let the agent store it
-as workspace state, and trigger it later. Each step can look harmless on its
-own, but the chain can turn untrusted text into persistent control content.
+LLM agents are increasingly used as operational tools inside local agentic
+harnesses. They can read and write project files, call tools, and reuse
+workspace state across sessions. These capabilities create a new attack surface:
+an attacker can place a prompt injection in a file or tool output, induce the
+agent to store it, and trigger it later.
 
-DASGuard defends this boundary by detecting control-like spans, attributing
-their source, and blocking or sanitizing unsafe state changes before they are
-committed to the workspace.
+ClawTrojan studies this multi-step trojan setting. A single turn may appear
+benign, but a full trajectory can convert untrusted text into persistent control
+content in the workspace. The benchmark is designed to measure whether an agent
+or defense can stop the chain before a harmful irreversible outcome.
+
+DASGuard is the defense proposed in the paper. It scans control-like text in
+sensitive local files, traces where that text came from, and removes or blocks
+control content that does not originate from a trusted source.
 
 <p align="center">
   <img src="figures/claw-trojan.png" alt="ClawTrojan benchmark overview" width="100%">
@@ -63,15 +73,19 @@ machine-specific training or evaluation logs are intentionally excluded.
 
 ## Benchmark
 
-ClawTrojan models attacks in local agent harnesses where project files, memory,
-and tool outputs persist across turns. The benchmark covers document
-falsification, task deviation, external side effects, unauthorized disclosure,
-and clean or borderline controls for false-positive measurement.
+ClawTrojan models attacks in local agentic harnesses where project files,
+memory, downloaded content, tool outputs, and agent capabilities persist across
+turns. It represents an attack as a trajectory rather than a single malicious
+prompt.
+
+The released benchmark covers document falsification, task deviation, external
+side effects, unauthorized disclosure, and clean or borderline controls for
+false-positive measurement.
 
 Each runnable environment records the visible user request, hidden instruction
 placement, semantic attack stage, and whether a step is the last chance to stop
-an irreversible outcome. This lets defenses be evaluated on both early
-detection and final blocking.
+an irreversible outcome. This supports both early-stage detection analysis and
+full-chain attack success measurement.
 
 ## DASGuard
 
@@ -83,16 +97,26 @@ tool call or file operation, it:
 3. attributes each span to a source, destination, and control role;
 4. blocks protected unsafe operations or commits a sanitized shadow copy.
 
+This design targets the failure mode of step-local defenses: a defense may block
+an obvious harmful final action, but miss the earlier write that plants the
+backdoor. DASGuard carries provenance labels and prior findings across the
+trajectory so that planted control content can be removed before it becomes
+persistent workspace state.
+
 <p align="center">
   <img src="figures/dasguard.png" alt="DASGuard overview" width="100%">
 </p>
 
 ## Results Snapshot
 
-On the positive ClawTrojan split reported in the paper, raw agents and
-single-step defenses remain highly vulnerable to persistent workspace attacks.
-DASGuard reduces both step-level ASR and full-chain ASR by carrying provenance
-labels and prior findings across the attack chain.
+The paper reports that ClawTrojan reaches 95.5% ASR in an OpenClaw-style
+simulated workspace with GPT-5.4, while existing single-turn prompt-injection
+attacks produce near-zero ASR on the same model. This highlights that
+persistent workspace control is a distinct threat from one-shot prompt
+injection.
+
+DASGuard reduces both step-level ASR and full-chain ASR by combining runtime
+attack blocking with sanitized commits to the workspace.
 
 <p align="center">
   <img src="figures/chain_penetration_cdf.png" alt="Chain penetration distribution" width="70%">
@@ -181,11 +205,10 @@ ClawTrojan sandbox results.
 
 ## Citation
 
-If you use ClawShield, ClawTrojan, or DASGuard in your research, please cite
-the paper:
+If you use ClawTrojan or DASGuard in your research, please cite the paper:
 
 ```bibtex
-@misc{clawshield2026clawtrojan,
+@misc{tan2026promptinjectionpersistentcontrol,
   title        = {From Prompt Injection to Persistent Control: Defending Agentic Harness Against Trojan Backdoors},
   author       = {Jiejun Tan and Zhicheng Dou and Xinyu Yang and Yuyang Hu and Yiruo Cheng and Xiaoxi Li and Ji-Rong Wen},
   year         = {2026},
