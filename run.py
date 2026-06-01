@@ -29,7 +29,7 @@ def generate_dataset(args):
     except ModuleNotFoundError as exc:
         raise SystemExit(
             "The optional synthetic dataset generator is not included in this "
-            "minimal anonymous package. Use the ClawTrojan reproduction commands "
+            "minimal public release package. Use the ClawTrojan reproduction commands "
             "such as trojan-export, dasguard-detect, and sandbox-eval, or restore "
             "dataset/ if you need the generate command."
         ) from exc

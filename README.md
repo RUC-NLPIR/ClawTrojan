@@ -1,8 +1,8 @@
 <h1 align="center">ClawShield</h1>
 
 <div align="center">
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/arXiv-coming_soon-b5212f.svg?logo=arxiv" alt="arXiv"></a>
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-Dataset-27b3b4.svg" alt="HuggingFace Dataset"></a>
+<a href="https://arxiv.org/abs/2605.31042" target="_blank"><img src="https://img.shields.io/badge/arXiv-2605.31042-b5212f.svg?logo=arxiv" alt="arXiv"></a>
+<a href="https://huggingface.co/datasets/zstanjj/ClawTrojan" target="_blank"><img src="https://img.shields.io/badge/HuggingFace-Dataset-27b3b4.svg" alt="HuggingFace Dataset"></a>
 <a href="#" target="_blank"><img src="https://custom-icon-badges.demolab.com/badge/ModelScope-Dataset-624aff?style=flat&logo=modelscope&logoColor=white" alt="ModelScope Dataset"></a>
 <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
 <a><img alt="Python" src="https://img.shields.io/badge/made_with-Python-blue"></a>
@@ -186,13 +186,13 @@ the paper:
 
 ```bibtex
 @misc{clawshield2026clawtrojan,
-  title        = {From Prompt Injection to Persistent Control: Defending Agentic Workspaces Against Trojan Backdoors},
-  author       = {ClawShield Authors},
+  title        = {From Prompt Injection to Persistent Control: Defending Agentic Harness Against Trojan Backdoors},
+  author       = {Jiejun Tan and Zhicheng Dou and Xinyu Yang and Yuyang Hu and Yiruo Cheng and Xiaoxi Li and Ji-Rong Wen},
   year         = {2026},
-  howpublished = {\url{https://github.com/plageon/ClawTrojan}},
-  note         = {Code and benchmark release}
+  eprint       = {2605.31042},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  url          = {https://arxiv.org/abs/2605.31042},
+  note         = {Code: \url{https://github.com/RUC-NLPIR/ClawTrojan}; Dataset: \url{https://huggingface.co/datasets/zstanjj/ClawTrojan}}
 }
 ```
-
-Update the author, venue, and repository URL fields once the public paper and
-repository metadata are finalized.
