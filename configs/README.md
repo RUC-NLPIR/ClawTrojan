@@ -37,3 +37,14 @@ importing external repositories. PromptShield training data is an external
 dependency: set `PROMPTSHIELD_DATA_DIR` to a directory containing
 `train_en.json` and `validation.json`, or pass explicit `--train-file` and
 `--validation-file` paths to `scripts/train_promptshield_lora.py`.
+
+## September 2026 revision
+
+- `new_models_full_20260920.json`: three raw models, 919 steps each.
+- `spotlighting_full_20260920.json`: matched no-defense, Datamarking and Encoding.
+- `agentpoison_clawtrojan_full_20260920.json`: frozen user-query PPL filter.
+
+Run `python scripts/prepare_revision_data.py` first to create the full positive
+manifest. Endpoint and API keys come from `.env` or the environment, not these
+configs. Read [the reproduction guide](../docs/paper_revision_reproduction.md)
+for scoring prerequisites, paid-run commands and result verification.

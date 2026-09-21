@@ -321,6 +321,7 @@ class ConversationTurn:
     text_content: str = ""
     tool_calls: List[Dict[str, Any]] = field(default_factory=list)  # [{id, name, input}]
     stop_reason: str = "end_turn"  # end_turn | tool_use | max_tokens
+    reasoning_content: Optional[str] = None
 
 
 # ── Base tool-use client ───────────────────────────────────────────
@@ -347,6 +348,7 @@ class OpenAIToolUseClient(BaseToolUseClient):
 
         self.client = OpenAI(
             api_key=os.environ["OPENAI_API_KEY"],
+            base_url=os.environ.get("OPENAI_BASE_URL") or None,
             timeout=_positive_float_env("LLM_REQUEST_TIMEOUT_SECONDS", 180.0),
         )
         self.model = model
@@ -400,7 +402,12 @@ class OpenAIToolUseClient(BaseToolUseClient):
                 })
 
         stop = "tool_use" if tc_list else ("max_tokens" if choice.finish_reason == "length" else "end_turn")
-        return ConversationTurn(text_content=text, tool_calls=tc_list, stop_reason=stop)
+        return ConversationTurn(
+            text_content=text,
+            tool_calls=tc_list,
+            stop_reason=stop,
+            reasoning_content=getattr(msg, "reasoning_content", None),
+        )
 
 
 class AnthropicToolUseClient(BaseToolUseClient):
@@ -678,6 +685,8 @@ def create_tool_use_client(
 def _build_assistant_message_openai(turn: ConversationTurn) -> Dict[str, Any]:
     """Build OpenAI-format assistant message from a ConversationTurn."""
     msg: Dict[str, Any] = {"role": "assistant"}
+    if turn.reasoning_content is not None:
+        msg["reasoning_content"] = turn.reasoning_content
     if turn.text_content:
         msg["content"] = turn.text_content
     if turn.tool_calls:
@@ -776,13 +785,25 @@ class AgentLoop:
             },
         )
 
+        if self.dispatcher.baseline.spotlighting is not None:
+            messages = self.dispatcher.baseline.spotlighting.transform_history(messages)
+
         final_response = ""
         terminated_reason = "completed"
         error_metadata: Dict[str, Any] = {}
         agent_llm_calls = 0
         baseline_extra_llm_calls = 0
 
-        for turn_idx in range(self.max_turns):
+        query_filter = None
+        if self.dispatcher.baseline.name == "agentpoison":
+            from .agentpoison import query_decision
+            query_filter = query_decision(user_input)
+            if query_filter["blocked"]:
+                final_response = "Request blocked by the query perplexity filter."
+                messages.append({"role": "assistant", "content": final_response})
+                terminated_reason = "blocked_by_perplexity_filter"
+
+        for turn_idx in range(0 if query_filter and query_filter["blocked"] else self.max_turns):
             self.dispatcher.set_turn(turn_idx)
 
             try:
@@ -925,6 +946,8 @@ class AgentLoop:
         duration = time.time() - start
 
         metadata = self.dispatcher.baseline.export_metadata()
+        if query_filter is not None:
+            metadata["agentpoison"] = query_filter
         metadata["agent_llm_calls"] = agent_llm_calls
         metadata["baseline_extra_llm_calls"] = baseline_extra_llm_calls
         metadata["total_llm_calls"] = agent_llm_calls + baseline_extra_llm_calls

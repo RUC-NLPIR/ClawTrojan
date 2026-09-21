@@ -109,6 +109,9 @@ persistent workspace state.
 
 ## Results Snapshot
 
+The [September revision results](docs/paper_revision_reproduction.md#reported-added-results)
+include seven added conditions, step verdicts, and an offline metric verifier.
+
 The paper reports that ClawTrojan reaches 95.5% ASR in an OpenClaw-style
 simulated workspace with GPT-5.4, while existing single-turn prompt-injection
 attacks produce near-zero ASR on the same model. This highlights that
@@ -123,6 +126,8 @@ attack blocking with sanitized commits to the workspace.
 </p>
 
 ## Setup
+
+Use Python 3.10 or newer. The full-run controller supports Linux/macOS.
 
 ```bash
 python -m venv .venv
@@ -157,41 +162,42 @@ python run.py dasguard-detect \
 Run focused tests:
 
 ```bash
-pytest tests/test_dasguard_assessment.py tests/test_dasguard_shadow_gate.py
+pip install -r requirements-dev.txt
+python -m pytest -q
 ```
 
 ## Reproducing Paper-Scale Runs
 
-Prepare positive-split shards and command manifests:
+The checked-in data are **15 examples**, not the complete paper split. Start by
+fetching and verifying the pinned full dataset (362 samples / 339 positives /
+919 malicious steps):
 
 ```bash
-python scripts/prepare_paper_eval_shards.py \
-  --samples-root ./claw_trojan/samples \
-  --envs-root ./claw_trojan/envs \
-  --output-root ./outputs/paper_eval \
-  --num-shards 8 \
-  --copy-envs \
-  --force
+python scripts/prepare_revision_data.py
 ```
 
-Run a filtered worker slice:
+The September revision adds the AgentPoison query-level Perplexity Filter,
+Spotlighting Datamarking/Encoding, and three hosted raw models. Exact commands,
+frozen calibration, data snapshot differences, results and interpretation limits
+are in [the revision reproduction guide](docs/paper_revision_reproduction.md).
+
+Verify the seven released result sets without model calls:
 
 ```bash
-python scripts/run_paper_eval_worker.py \
-  --manifest ./outputs/paper_eval/manifests/commands_no_defense_bases.jsonl \
-  --condition no_defense \
-  --worker-id 0 \
-  --num-workers 1
+python scripts/verify_revision_results.py
 ```
 
-Merge completed shard outputs:
+Run an added full experiment after setting the API key and optional
+`OPENAI_BASE_URL` in `.env`:
 
 ```bash
-python scripts/merge_paper_eval_results.py \
-  --input-root ./outputs/paper_eval/runs \
-  --output-root ./outputs/paper_eval/merged \
-  --table-dir ./outputs/paper_eval/tables
+python scripts/run_full_model_eval.py --config configs/new_models_full_20260920.json --prepare-only
+python scripts/run_full_model_eval.py --config configs/new_models_full_20260920.json
 ```
+
+The historical sharding/worker/merge scripts remain available. For paper-scale
+runs, point them at the verified `outputs/paper_revision/dataset/samples` and
+`outputs/paper_revision/dataset/envs` directories, rather than the examples.
 
 ## Data Note
 
@@ -209,7 +215,7 @@ If you use ClawTrojan or DASGuard in your research, please cite the paper:
 
 ```bibtex
 @misc{tan2026promptinjectionpersistentcontrol,
-  title        = {From Prompt Injection to Persistent Control: Defending Agentic Harness Against Trojan Backdoors},
+  title        = {From Prompt Injection to Persistent Control: Defending Agentic Workspaces Against Trojan Backdoors},
   author       = {Jiejun Tan and Zhicheng Dou and Xinyu Yang and Yuyang Hu and Yiruo Cheng and Xiaoxi Li and Ji-Rong Wen},
   year         = {2026},
   eprint       = {2605.31042},

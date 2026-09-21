@@ -34,3 +34,12 @@ Excluded:
 The benchmark itself intentionally contains synthetic names, emails, mock
 credentials, and fake organization data. These are generated scenario
 artifacts, not real personal data.
+
+## September revision assets
+
+`reproduction/` now includes pinned dataset/sample hashes, exact positive step
+IDs, clean query calibration, compact per-step verdict CSVs, and matched timing
+measurements. These are small auditable research artifacts; full workspaces stay
+on Hugging Face and runtime traces remain excluded. The GitHub examples remain
+a 15-sample subset. See `docs/paper_revision_reproduction.md` for the complete
+download and verification workflow.

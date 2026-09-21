@@ -358,9 +358,9 @@ class SandboxEvaluator:
                                 self.agent_model,
                                 trial,
                                 trace_metadata,
-                                "resumed",
-                                None,
-                                None,
+                                trace_metadata.get("terminated_reason", "resumed"),
+                                trace_metadata.get("tool_calls_count"),
+                                trace_metadata.get("duration_seconds"),
                             ))
                             logger.info(
                                 f"  trial {trial}: reused verdict={verdict.verdict} "
@@ -524,6 +524,12 @@ class SandboxEvaluator:
 
                 # Save per-trial results
                 trial_dir.mkdir(parents=True, exist_ok=True)
+                # Preserve measurements when a long evaluation resumes cached trials.
+                trace.metadata.update({
+                    "terminated_reason": trace.terminated_reason,
+                    "tool_calls_count": len(trace.tool_calls),
+                    "duration_seconds": trace.duration_seconds,
+                })
 
                 # trace.jsonl
                 with open(trial_dir / "trace.jsonl", "w", encoding="utf-8") as f:

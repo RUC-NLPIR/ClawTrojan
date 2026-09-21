@@ -179,6 +179,7 @@ class OpenAIClient(BaseLLMClient):
 
         self.client = OpenAI(
             api_key=os.environ["OPENAI_API_KEY"],
+            base_url=os.environ.get("OPENAI_BASE_URL") or None,
             timeout=_positive_float_env("LLM_REQUEST_TIMEOUT_SECONDS", 180.0),
         )
         self.model = model

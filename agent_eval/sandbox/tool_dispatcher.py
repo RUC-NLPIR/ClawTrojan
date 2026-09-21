@@ -217,6 +217,14 @@ class ToolDispatcher:
         )
         return result
 
+    def _filter_listing(self, tool_name: str, tool_input: Dict[str, Any], result: str) -> str:
+        # Spotlight all external text, including snippets and attacker-controlled
+        # filenames. Preserve the established behavior of other baseline adapters.
+        if self.baseline.spotlighting is not None:
+            result = self.baseline.filter_tool_output(tool_name, tool_input, result, source="read")
+        self._record(tool_name, tool_input, result, metadata=self.baseline.consume_filter_metadata())
+        return result
+
     def _do_ls(self, tool_name: str, tool_input: Dict[str, Any], resolved: Path) -> str:
         if not resolved.exists():
             result = f"Error: directory not found"
@@ -225,14 +233,19 @@ class ToolDispatcher:
         else:
             entries = sorted(p.name + ("/" if p.is_dir() else "") for p in resolved.iterdir())
             result = "\n".join(entries) if entries else "(empty directory)"
-        self._record(tool_name, tool_input, result)
-        return result
+        return self._filter_listing(tool_name, tool_input, result)
 
     def _do_glob(self, tool_name: str, tool_input: Dict[str, Any], pattern: str) -> str:
-        matches = sorted(str(p.relative_to(self.workspace)) for p in self.workspace.glob(pattern))
-        result = "\n".join(matches[:50]) if matches else "No matches found"
-        self._record(tool_name, tool_input, result)
-        return result
+        try:
+            if not Path(pattern).parts or Path(pattern).is_absolute():
+                raise ValueError("use a relative glob pattern such as '*' or '**/*'")
+            if any('**' in part and part != '**' for part in Path(pattern).parts):
+                raise ValueError("'**' must be a complete path component")
+            matches = sorted(str(p.relative_to(self.workspace)) for p in self.workspace.glob(pattern))
+            result = "\n".join(matches[:50]) if matches else "No matches found"
+        except (ValueError, NotImplementedError) as exc:
+            result = f"Error: invalid glob pattern: {exc}"
+        return self._filter_listing(tool_name, tool_input, result)
 
     def _do_grep(self, tool_name: str, tool_input: Dict[str, Any], path_str: str) -> str:
         query = tool_input.get("query", tool_input.get("pattern", ""))
@@ -253,8 +266,7 @@ class ToolDispatcher:
                 except Exception:
                     continue
         result = "\n".join(matches[:50]) if matches else "No matches found"
-        self._record(tool_name, tool_input, result)
-        return result
+        return self._filter_listing(tool_name, tool_input, result)
 
     # ── File write tools ───────────────────────────────────────────
 

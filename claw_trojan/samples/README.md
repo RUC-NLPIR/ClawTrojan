@@ -39,13 +39,11 @@ steps/{sample_id}.jsonl      → 5-step 轨迹骨架（设计文档）
 envs/{sample_id}/step_{n}/   → 每个 step 的完整可执行环境
 ```
 
-## 当前状态
+## 当前发布范围
 
-共 20 个 sample：
-- task_dev: 10 个（cs_mem_001~003, cs_tool_001/003, cs_trust_001~003, cs_delay_001, cs_frag_001）
-- ext_side_effect: 5 个（cs_delay_002~003, cs_priv_001~002, cs_tool_002）
-- unsafe_exec: 1 个（cs_frag_003）
-- unauth_disclosure: 1 个（cs_frag_002）
-- none: 3 个（cs_neg_001~002, cs_border_001）
+GitHub 随代码附带 15 个示例样本，其中 12 个正样本；不是论文全量集合。
+论文数据共 362 个样本，339 个正样本对应 919 个恶意步骤。
+完整数据下载、固定版本及分母校验见根目录的
+[论文修订复现说明](../../docs/paper_revision_reproduction.md)。
 
-其中 8 个已有 steps 轨迹，2 个（cs_mem_001, cs_frag_002）已完成 env 标注。
+目录可能包含历史分类名称；实际分组以 JSON 中的 `outcome_category` 为准。

@@ -29,9 +29,11 @@ from agent_eval.sandbox.official_baseline_adapters import (
     camel_official_metadata,
 )
 from agent_eval.sandbox.clawkeeper_official import evaluate_before_tool_call
+from agent_eval.sandbox.spotlighting import SPOTLIGHTING_CONDITIONS, Spotlighting
 
 
 BASELINES = {
+    "agentpoison",
     "no_defense",
     "clawkeeper",
     "melon",
@@ -39,7 +41,7 @@ BASELINES = {
     "promptshield",
     "struq",
     "camel",
-}
+} | SPOTLIGHTING_CONDITIONS
 
 DASGUARD_CONDITIONS = {"dasguard", "dasguard_block_only"}
 SANDBOX_CONDITIONS = BASELINES | DASGUARD_CONDITIONS
@@ -223,6 +225,7 @@ class SandboxBaseline:
         if name not in SANDBOX_CONDITIONS:
             raise ValueError(f"Unknown sandbox baseline: {name}")
         self.name = name
+        self.spotlighting = Spotlighting(name) if name in SPOTLIGHTING_CONDITIONS else None
         configured = model_config or BaselineModelConfig()
         self.model_config = BaselineModelConfig(
             promptshield_classifier_path=(
@@ -282,6 +285,8 @@ class SandboxBaseline:
         return self.name in DASGUARD_CONDITIONS
 
     def wrap_system_prompt(self, system_prompt: str) -> str:
+        if self.spotlighting is not None:
+            return self.spotlighting.wrap_system_prompt(system_prompt)
         if self.is_dasguard:
             return system_prompt
         if self.name == "struq":
@@ -336,6 +341,8 @@ class SandboxBaseline:
         prior_defense_state: Optional[Dict[str, Any]] = None,
         run_metadata: Optional[Dict[str, Any]] = None,
     ) -> None:
+        if self.spotlighting is not None:
+            self.spotlighting.reset()
         if self.name == "promptshield":
             control_items = [
                 system_prompt,
@@ -400,6 +407,8 @@ class SandboxBaseline:
             self._camel_add_node("control", label, text, trusted=True)
 
     def export_metadata(self) -> Dict[str, Any]:
+        if self.spotlighting is not None:
+            return {"spotlighting": self.spotlighting.metadata()}
         if self.is_dasguard:
             prior_items = list((self._dasguard_prior_state or {}).get("items", []) or [])
             state_after = {
@@ -461,6 +470,10 @@ class SandboxBaseline:
         *,
         source: str,
     ) -> str:
+        if self.spotlighting is not None and source in {"mock", "read", "web"}:
+            result = self.spotlighting.transform(output)
+            self._pending_filter_metadata = {"spotlighting": self.spotlighting.metadata()}
+            return result
         if (self.name == "struq" or self.is_dasguard) and source in {"mock", "read", "web"}:
             return self._mark_untrusted(
                 output,
