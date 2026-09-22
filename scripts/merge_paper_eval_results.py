@@ -31,6 +31,9 @@ ATTACK_COLUMNS = [
 
 METHOD_LABELS = {
     "no_defense": "Raw agent",
+    "agentpoison": "AgentPoison query PPL filter",
+    "spotlighting_encoding": "Spotlighting Encoding",
+    "spotlighting_datamarking": "Spotlighting Datamarking",
     "clawkeeper": "ClawKeeper",
     "struq": "StruQ",
     "melon": "MELON",

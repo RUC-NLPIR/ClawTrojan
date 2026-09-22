@@ -1,0 +1,422 @@
+{
+  "deepseek-v4.1-flash_no_defense": {
+    "batch": "new_models_full_20260920",
+    "model": "deepseek-v4.1-flash",
+    "condition": "no_defense",
+    "result_file": "results/deepseek-v4.1-flash_no_defense.csv",
+    "sha256": "7f4076b44e9c93bec8912e339f604d6761840a19348a55a6a04866ffc9a21754",
+    "source_results_sha256": "e107bc8221166373d23db501977b6557f6d56737e2461a01619f76e4178d91ee",
+    "expected_overall": {
+      "asr": 0.14907508161044614,
+      "partial_rate": 0.20348204570184983,
+      "safe_rate": 0.6474428726877041,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.035398230088495575,
+      "avg_chain_penetration_score": 0.09857423795476893
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.07386363636363637,
+        "partial_rate": 0.1875,
+        "safe_rate": 0.7386363636363636,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.08796296296296297,
+        "partial_rate": 0.14814814814814814,
+        "safe_rate": 0.7638888888888888,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.0,
+        "partial_rate": 0.0,
+        "safe_rate": 1.0,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.1092436974789916,
+        "partial_rate": 0.24369747899159663,
+        "safe_rate": 0.6470588235294118,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.27526132404181186,
+        "partial_rate": 0.2229965156794425,
+        "safe_rate": 0.5017421602787456,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "glm-5.3-flash_no_defense": {
+    "batch": "new_models_full_20260920",
+    "model": "glm-5.3-flash",
+    "condition": "no_defense",
+    "result_file": "results/glm-5.3-flash_no_defense.csv",
+    "sha256": "296a908742511d79025018ffd03d71aa873728a169c7f57bc481d6cc1768e48d",
+    "source_results_sha256": "8fe06139a60163bfe7ab4748f809ecae71781354110c89543273f3cd4cc4b0d8",
+    "expected_overall": {
+      "asr": 0.6115342763873776,
+      "partial_rate": 0.16866158868335146,
+      "safe_rate": 0.21980413492927095,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.3274336283185841,
+      "avg_chain_penetration_score": 0.45722713864306785
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.5340909090909091,
+        "partial_rate": 0.17045454545454544,
+        "safe_rate": 0.29545454545454547,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.6157407407407407,
+        "partial_rate": 0.14814814814814814,
+        "safe_rate": 0.2361111111111111,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.0,
+        "partial_rate": 0.5,
+        "safe_rate": 0.5,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.5378151260504201,
+        "partial_rate": 0.2184873949579832,
+        "safe_rate": 0.24369747899159663,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.7212543554006968,
+        "partial_rate": 0.13937282229965156,
+        "safe_rate": 0.13937282229965156,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "gpt-5.6-terra_no_defense": {
+    "batch": "new_models_full_20260920",
+    "model": "gpt-5.6-terra",
+    "condition": "no_defense",
+    "result_file": "results/gpt-5.6-terra_no_defense.csv",
+    "sha256": "9eb557e9ab3a42c08cc2f824bc20010aa96afa0ea49143d51afa59082c79c9dc",
+    "source_results_sha256": "503a537856587449cb685f4fa8ba4873ee2b7a59da940fceed050e1154cd459c",
+    "expected_overall": {
+      "asr": 0.8639825897714908,
+      "partial_rate": 0.04570184983677911,
+      "safe_rate": 0.09031556039173014,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.6991150442477876,
+      "avg_chain_penetration_score": 0.7873156342182891
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.875,
+        "partial_rate": 0.03409090909090909,
+        "safe_rate": 0.09090909090909091,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.8518518518518519,
+        "partial_rate": 0.032407407407407406,
+        "safe_rate": 0.11574074074074074,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.0,
+        "partial_rate": 0.5,
+        "safe_rate": 0.5,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.8445378151260504,
+        "partial_rate": 0.07563025210084033,
+        "safe_rate": 0.07983193277310924,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.8885017421602788,
+        "partial_rate": 0.03484320557491289,
+        "safe_rate": 0.07665505226480836,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "gpt-5.4_no_defense": {
+    "batch": "spotlighting_full_20260920",
+    "model": "gpt-5.4",
+    "condition": "no_defense",
+    "result_file": "results/gpt-5.4_no_defense.csv",
+    "sha256": "a4602b3bb8fe02207783ea5022a64fe7d75f60a9896ccd396edc0a4a603a0c64",
+    "source_results_sha256": "52ead4f0f08d2f57573c36d683845dfeb41e12a31f54a1d7e6b837eafb8a982c",
+    "expected_overall": {
+      "asr": 0.9336235038084875,
+      "partial_rate": 0.03482045701849837,
+      "safe_rate": 0.031556039173014146,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.8407079646017699,
+      "avg_chain_penetration_score": 0.8758603736479843
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.9488636363636364,
+        "partial_rate": 0.011363636363636364,
+        "safe_rate": 0.03977272727272727,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.9120370370370371,
+        "partial_rate": 0.046296296296296294,
+        "safe_rate": 0.041666666666666664,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.5,
+        "partial_rate": 0.5,
+        "safe_rate": 0.0,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.8991596638655462,
+        "partial_rate": 0.06722689075630252,
+        "safe_rate": 0.03361344537815126,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.9721254355400697,
+        "partial_rate": 0.010452961672473868,
+        "safe_rate": 0.017421602787456445,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "gpt-5.4_spotlighting_datamarking": {
+    "batch": "spotlighting_full_20260920",
+    "model": "gpt-5.4",
+    "condition": "spotlighting_datamarking",
+    "result_file": "results/gpt-5.4_spotlighting_datamarking.csv",
+    "sha256": "0877e257405c98ba361ad6387148c0354ca0bdc0c952d3da6c3f2db1c1d6f144",
+    "source_results_sha256": "0b49ccd7cd5291f909496821763ee3f99221687dd4c1112f0471974d76388dab",
+    "expected_overall": {
+      "asr": 0.9270946681175191,
+      "partial_rate": 0.03482045701849837,
+      "safe_rate": 0.03808487486398259,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.8259587020648967,
+      "avg_chain_penetration_score": 0.8676007866273353
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.9090909090909091,
+        "partial_rate": 0.045454545454545456,
+        "safe_rate": 0.045454545454545456,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.9027777777777778,
+        "partial_rate": 0.046296296296296294,
+        "safe_rate": 0.05092592592592592,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.5,
+        "partial_rate": 0.0,
+        "safe_rate": 0.5,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.9159663865546218,
+        "partial_rate": 0.03361344537815126,
+        "safe_rate": 0.05042016806722689,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.9686411149825784,
+        "partial_rate": 0.020905923344947737,
+        "safe_rate": 0.010452961672473868,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "gpt-5.4_spotlighting_encoding": {
+    "batch": "spotlighting_full_20260920",
+    "model": "gpt-5.4",
+    "condition": "spotlighting_encoding",
+    "result_file": "results/gpt-5.4_spotlighting_encoding.csv",
+    "sha256": "74bdc03d93f569801b3b4fcf82a7a91ea7c91443c5dfbbf0b59ac7ebe98aab89",
+    "source_results_sha256": "c096eb75d0f8315f4bf5223bfd397562bbe551911d1db539af97bfb1ad23e826",
+    "expected_overall": {
+      "asr": 0.9042437431991295,
+      "partial_rate": 0.03264417845484222,
+      "safe_rate": 0.06311207834602829,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.7787610619469026,
+      "avg_chain_penetration_score": 0.8306784660766962
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.9090909090909091,
+        "partial_rate": 0.022727272727272728,
+        "safe_rate": 0.06818181818181818,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.875,
+        "partial_rate": 0.023148148148148147,
+        "safe_rate": 0.10185185185185185,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.5,
+        "partial_rate": 0.0,
+        "safe_rate": 0.5,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.8697478991596639,
+        "partial_rate": 0.058823529411764705,
+        "safe_rate": 0.07142857142857142,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.9547038327526133,
+        "partial_rate": 0.024390243902439025,
+        "safe_rate": 0.020905923344947737,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  },
+  "gpt-5.4_agentpoison": {
+    "batch": "agentpoison_clawtrojan_full_20260920",
+    "model": "gpt-5.4",
+    "condition": "agentpoison",
+    "result_file": "results/gpt-5.4_agentpoison.csv",
+    "sha256": "52d18a3680e177162c404569e560e795cd6433ce6e39a7ca7123b3e209d2cf6b",
+    "source_results_sha256": "a5c90984036f66e156a3d7adbb70ac07ec34a73e2d1b1137cc63a63c9720f612",
+    "expected_overall": {
+      "asr": 0.9368879216539717,
+      "partial_rate": 0.028291621327529923,
+      "safe_rate": 0.03482045701849837,
+      "n": 919,
+      "invalid": 0,
+      "total": 919,
+      "full_chain_asr": 0.855457227138643,
+      "avg_chain_penetration_score": 0.8893805309734514
+    },
+    "expected_by_outcome_category": {
+      "doc_falsification": {
+        "asr": 0.9090909090909091,
+        "partial_rate": 0.03409090909090909,
+        "safe_rate": 0.056818181818181816,
+        "n": 176,
+        "invalid": 0,
+        "total": 176
+      },
+      "ext_side_effect": {
+        "asr": 0.9027777777777778,
+        "partial_rate": 0.046296296296296294,
+        "safe_rate": 0.05092592592592592,
+        "n": 216,
+        "invalid": 0,
+        "total": 216
+      },
+      "none": {
+        "asr": 0.5,
+        "partial_rate": 0.0,
+        "safe_rate": 0.5,
+        "n": 2,
+        "invalid": 0,
+        "total": 2
+      },
+      "task_dev": {
+        "asr": 0.9243697478991597,
+        "partial_rate": 0.037815126050420166,
+        "safe_rate": 0.037815126050420166,
+        "n": 238,
+        "invalid": 0,
+        "total": 238
+      },
+      "unauth_disclosure": {
+        "asr": 0.9930313588850174,
+        "partial_rate": 0.003484320557491289,
+        "safe_rate": 0.003484320557491289,
+        "n": 287,
+        "invalid": 0,
+        "total": 287
+      }
+    }
+  }
+}

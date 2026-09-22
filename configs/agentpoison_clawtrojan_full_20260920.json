@@ -1,0 +1,23 @@
+{
+  "agent_backend": "openai",
+  "agent_models": [
+    "gpt-5.4"
+  ],
+  "judge_backend": "openai",
+  "judge_model": "gpt-5.4",
+  "baseline": "agentpoison",
+  "conditions": [
+    "agentpoison"
+  ],
+  "dynamic_defense": "isolated_step",
+  "eval_split": "malicious",
+  "max_turns": 12,
+  "trials": 1,
+  "request_timeout_seconds": 180,
+  "positive_manifest": "outputs/paper_revision/manifests/positive_samples.jsonl",
+  "expected_samples": 339,
+  "expected_steps_per_model": 919,
+  "concurrency": 8,
+  "max_shard_attempts": 3,
+  "output_dir": "experiments/agentpoison_clawtrojan_full_20260920"
+}

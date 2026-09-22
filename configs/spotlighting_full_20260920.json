@@ -1,0 +1,25 @@
+{
+  "agent_backend": "openai",
+  "agent_models": [
+    "gpt-5.4"
+  ],
+  "judge_backend": "openai",
+  "judge_model": "gpt-5.4",
+  "baseline": "no_defense",
+  "dynamic_defense": "isolated_step",
+  "eval_split": "malicious",
+  "max_turns": 12,
+  "trials": 1,
+  "request_timeout_seconds": 180,
+  "positive_manifest": "outputs/paper_revision/manifests/positive_samples.jsonl",
+  "expected_samples": 339,
+  "expected_steps_per_model": 919,
+  "concurrency": 12,
+  "max_shard_attempts": 3,
+  "output_dir": "experiments/spotlighting_full_20260920",
+  "conditions": [
+    "no_defense",
+    "spotlighting_datamarking",
+    "spotlighting_encoding"
+  ]
+}
